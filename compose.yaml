@@ -1,0 +1,10 @@
+services:
+  employee-attrition:
+    build: .
+    image: employee-attrition-mlops
+    container_name: employee-attrition-container
+    command: python orchestration/prefect_flow.py
+    environment:
+      PREFECT_HOME: /tmp/prefect
+    volumes:
+      - ./models:/app/models
